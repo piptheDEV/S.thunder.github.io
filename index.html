@@ -3,200 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S.Thunder | By piptheDEV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <title>S.Thunder - Pip's Game Showcase</title>
   <style>
-    :root {
-      --bg: #0f2027;
-      --bg-secondary: #203a43;
-      --text: #ffffff;
-      --accent: #00ffff;
-      --card-bg: rgba(255, 255, 255, 0.05);
-    }
-
-    body.dark {
-      --bg: #ffffff;
-      --bg-secondary: #f0f0f0;
-      --text: #000000;
-      --accent: #0077ff;
-      --card-bg: rgba(0, 0, 0, 0.05);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, var(--bg), var(--bg-secondary));
-      color: var(--text);
-      transition: background 0.5s, color 0.5s;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      animation: fadeIn 1.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: rgba(0,0,0,0.6);
-      padding: 20px;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      padding: 40px 20px;
       text-align: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2em;
-      letter-spacing: 2px;
-      border-bottom: 2px solid var(--accent);
+      animation: fadeInDown 1s ease-out;
     }
 
-    main {
-      flex: 1;
-      padding: 30px;
-      text-align: center;
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      background: linear-gradient(to right, #00f5ff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    section {
-      margin-top: 40px;
-    }
-
-    h2 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    p {
+    header p {
+      margin-top: 10px;
       font-size: 1.2em;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: auto;
+      color: #cccccc;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1em;
-      background-color: var(--accent);
-      color: #000;
+      margin: 15px 10px;
+      padding: 12px 24px;
+      border: 2px solid #00ffcc;
+      color: #00ffcc;
+      background: transparent;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 10px;
-      transition: 0.3s ease;
       font-weight: bold;
+      transition: background 0.3s, color 0.3s;
     }
 
     .btn:hover {
-      background-color: #00dddd;
-      transform: scale(1.05);
+      background: #00ffcc;
+      color: #000;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
     }
 
     .project-list {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
     .project-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--accent);
-      padding: 20px;
+      background: #1f1f1f;
+      border: 1px solid #333;
       border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      text-align: left;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 0 10px #00ffcc55;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
     }
 
     .project-card h3 {
       margin-top: 0;
-      color: var(--accent);
+      color: #00ffcc;
+    }
+
+    .project-card p {
+      color: #aaa;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     footer {
       text-align: center;
-      padding: 10px;
-      background-color: rgba(0,0,0,0.5);
+      padding: 20px;
+      color: #666;
       font-size: 0.9em;
-    }
-
-    .dark-toggle {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      padding: 10px 15px;
-      font-size: 0.9em;
-      background-color: var(--accent);
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      color: black;
-    }
-
-    .dark-toggle:hover {
-      background-color: #00dddd;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
 <body>
-  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Mode</button>
 
-  <header>S.Thunder</header>
-  <main>
-    <h2>Welcome to the Thunder</h2>
-    <p>
-      This is the powerful beginning of something legendary. <br>
-      Built by <strong>piptheDEV</strong>, S.Thunder is the spark of a future that changes the game world forever.
-    </p>
-    <a href="https://github.com/piptheDEV" class="btn">Visit My GitHub</a>
+  <header>
+    <h1>S.Thunder</h1>
+    <p>Changing the world of games, internet & systems — by Pip</p>
+    <a href="https://github.com/piptheDEV/S.thunder" class="btn">Visit My GitHub</a>
+    <a href="https://talha1001.itch.io" class="btn">Visit My itch.io</a>
+  </header>
 
-    <!-- My Games -->
-    <section>
-      <h2>My Games</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Thunder Run</h3>
-          <p>A 2D action runner with cool animations and epic lightning powers. Made in Godot.</p>
-          <a href="#" class="btn">Play Now</a>
-        </div>
-        <div class="project-card">
-          <h3>Stormcraft</h3>
-          <p>Survive, build, and zap enemies with thunder tools in this survival pixel game. Fun + Chaos!</p>
-          <a href="#" class="btn">Download</a>
-        </div>
+  <section>
+    <h2>My Games</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Madness Miners</h3>
+        <p>A puzzle game where you navigate through challenging mining scenarios.</p>
+        <a href="https://talha1001.itch.io/madness-miners" class="btn">Play Now</a>
       </div>
-    </section>
-
-    <!-- Upcoming Projects -->
-    <section>
-      <h2>Upcoming Projects</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>BattleStorm Royale</h3>
-          <p>The dream game with Hamza! A Battle Royale where storms literally change the battlefield. Unreal Engine. In development...</p>
-        </div>
-
-        <div class="project-card">
-          <h3>ThunderCode</h3>
-          <p>A coding platform for kids in Pakistan to learn game dev and ethical hacking. Changing futures. #ThunderVision</p>
-        </div>
+      <div class="project-card">
+        <h3>Typing Rush</h3>
+        <p>Test your typing speed in this fast-paced game.</p>
+        <a href="https://talha1001.itch.io/typing-rush" class="btn">Play Now</a>
       </div>
-    </section>
-  </main>
+      <div class="project-card">
+        <h3>Word Guessing</h3>
+        <p>Challenge your vocabulary skills in this word-guessing game.</p>
+        <a href="https://talha1001.itch.io/word-guessing" class="btn">Play Now</a>
+      </div>
+      <div class="project-card">
+        <h3>Math Quiz</h3>
+        <p>Sharpen your math skills with this quiz game.</p>
+        <a href="https://talha1001.itch.io/math-quiz" class="btn">Play Now</a>
+      </div>
+      <div class="project-card">
+        <h3>Classic Snake Game</h3>
+        <p>Enjoy the classic snake game with a modern twist.</p>
+        <a href="https://talha1001.itch.io/classic-snake-game" class="btn">Play Now</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 piptheDEV. All rights reserved.
+    &copy; 2025 S.Thunder | Made with passion by Pip
   </footer>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-    }
-  </script>
 </body>
   </html>
